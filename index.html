@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaHub - Your Ultimate Movie Destination</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>CinemaHub</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#movies" class="nav-link">Movies</a>
+                <a href="#series" class="nav-link">TV Series</a>
+                <a href="#genres" class="nav-link">Genres</a>
+                <a href="#trending" class="nav-link">Trending</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search movies, series, actors...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <button class="user-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Discover Amazing Movies</h1>
+                <p>Explore thousands of movies and TV series. Find your next favorite watch with our advanced search and recommendation system.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Watch Now
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        More Info
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+    </section>
+
+    <!-- Search Results Section -->
+    <section id="searchResults" class="search-results" style="display: none;">
+        <div class="container">
+            <h2>Search Results</h2>
+            <div class="movies-grid" id="searchGrid">
+                <!-- Search results will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Categories -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Trending Now -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-fire"></i> Trending Now</h2>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="movies-slider" id="trendingSlider">
+                    <div class="slider-container">
+                        <div class="movies-row" id="trendingMovies">
+                            <!-- Movies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-btn" data-slider="trendingSlider">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" data-slider="trendingSlider">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Popular Movies -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Popular Movies</h2>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="movies-slider" id="popularSlider">
+                    <div class="slider-container">
+                        <div class="movies-row" id="popularMovies">
+                            <!-- Movies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-btn" data-slider="popularSlider">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" data-slider="popularSlider">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Action Movies -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-explosion"></i> Action & Adventure</h2>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="movies-slider" id="actionSlider">
+                    <div class="slider-container">
+                        <div class="movies-row" id="actionMovies">
+                            <!-- Movies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-btn" data-slider="actionSlider">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" data-slider="actionSlider">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Comedy Movies -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-laugh"></i> Comedy</h2>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="movies-slider" id="comedySlider">
+                    <div class="slider-container">
+                        <div class="movies-row" id="comedyMovies">
+                            <!-- Movies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-btn" data-slider="comedySlider">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" data-slider="comedySlider">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Horror Movies -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-ghost"></i> Horror</h2>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="movies-slider" id="horrorSlider">
+                    <div class="slider-container">
+                        <div class="movies-row" id="horrorMovies">
+                            <!-- Movies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-btn" data-slider="horrorSlider">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" data-slider="horrorSlider">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Romance Movies -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-heart"></i> Romance</h2>
+                    <button class="view-all-btn">View All <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="movies-slider" id="romanceSlider">
+                    <div class="slider-container">
+                        <div class="movies-row" id="romanceMovies">
+                            <!-- Movies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="slider-btn prev-btn" data-slider="romanceSlider">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" data-slider="romanceSlider">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Movie Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <div class="modal-body">
+                <div class="modal-poster">
+                    <img id="modalPoster" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span id="modalYear"></span>
+                        <span id="modalRating"></span>
+                        <span id="modalGenre"></span>
+                    </div>
+                    <p id="modalOverview"></p>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-play"></i>
+                            Watch Now
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-plus"></i>
+                            Add to Watchlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-film"></i>
+                        <span>CinemaHub</span>
+                    </div>
+                    <p>Your ultimate destination for movies and TV series. Discover, watch, and enjoy the best entertainment content.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#series">TV Series</a></li>
+                        <li><a href="#genres">Genres</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Genres</h3>
+                    <ul>
+                        <li><a href="#action">Action</a></li>
+                        <li><a href="#comedy">Comedy</a></li>
+                        <li><a href="#drama">Drama</a></li>
+                        <li><a href="#horror">Horror</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Dominum Movies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
